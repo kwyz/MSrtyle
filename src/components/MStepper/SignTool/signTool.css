@@ -1,0 +1,70 @@
+.image-responsive {
+    display: block;
+    max-width: 100%;
+}
+
+.authentification-list {
+    display: inline-block;
+    width: 100%;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+}
+
+.authentification-block {
+    position: relative;
+    width: 100%;
+    height: 346px;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    padding: 28px 20px;
+    overflow: hidden;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.authentification-block img {
+    margin-left: -15px;
+}
+
+.authentification-block.mob_sign {
+    padding: 15px 30px 30px;
+}
+
+.mob_sign .input-group {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.authentification-list li {
+    padding: 0 15px;
+}
+
+.authentification-block a {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    right: 30px;
+    transition: all 0.2s ease-in-out;
+}
+
+.authentification-block h4 {
+    line-height: 24px;
+    margin-bottom: 0;
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.border-fields {
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+}

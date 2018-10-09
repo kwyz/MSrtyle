@@ -1,0 +1,12 @@
+<section class="section mt-3">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <horizontal-stepper :steps="steps" @active-step="isStepActive" @completed-step="completeStep"
+                    @setAuthentificationStep="setAuthentificationStep">
+                    <sign-tool></sign-tool>
+                </horizontal-stepper>
+            </div>
+        </div>
+    </div>
+</section>

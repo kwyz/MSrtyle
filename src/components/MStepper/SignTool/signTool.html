@@ -1,0 +1,70 @@
+<div class="container text-center">
+    <div class="row">
+        <ul class="list-inline authentification-list">
+            <li class="col-md-6 col-lg-3  text-center">
+                <div class="authentification-block msing-bg-primary mob_sign ">
+                    <img class="img-responsive" src="@/assets/mob_sign.png">
+                    <h5 class="title text-white">Semnătura mobilă</h5>
+                    <div class="input-group mb-3 rounded-0 " v-bind:class="{'border-fields': errors.first('idnp'), 'border-0': !errors.first('idnp')}">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user small"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="IDNP" aria-label="IDNP" aria-describedby="basic-addon1"
+                            v-validate="'required|idnp'" name="idnp" v-bind:class="{'border-0' : errors.first('idnp')}"
+                            v-model="idnp" maxlength="13">
+                    </div>
+                    <div class="input-group mb-3" v-bind:class="{'border-fields': errors.first('phonenumber')}">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><small>+373</small></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Phone Number" aria-label="Username"
+                            aria-describedby="basic-addon1" v-validate="'required|numeric'" name="phonenumber"
+                            v-bind:class="{'border-0' :errors.first('phonenumber')}" v-model="phoneNumber" maxlength="8">
+                    </div>
+                    <a class="btn btn-light text-primary mr-2 mb-2 mt-5 btn-sm" @click="selectTool('mobile')"
+                        v-bind:class="{'disabled': isCompletedFields}">
+                        <span class="font-weight-bold"> <i class="fas fa-check"></i> Expediaza</span>
+                    </a>
+                </div>
+            </li>
+            <li class="col-lg-3 col-md-6 text-center">
+                <div class="authentification-block msing-bg-primary ">
+                    <img class="img-responsive mt-5" src="@/assets/cts.png">
+                    <h5 class="title text-white">Semnatură electronică</h5>
+                    <a class="align-self-end btn  btn-light text-primary mr-2 mb-2 btn-sm" @click="selectTool('electronicSign', 'cts.png')">
+                        <span class="font-weight-bold"> <i class=" fas fa-check"></i> Solicita</span>
+                    </a>
+                </div>
+            </li>
+            <li class="col-lg-3 col-md-6 text-center">
+                <div class="authentification-block msing-bg-primary">
+                    <img class="img-responsive mt-5" src="@/assets/logo_reg_white.png">
+                    <h5 class="title text-white">Buletin de identitate electronic</h5>
+                    <a class="btn btn-light text-primary mr-2 mb-2 btn-sm" @click="selectTool('electronicIdentityCard','logo_reg_white.png')">
+                        <span class="font-weight-bold"> <i class="fas fa-check"></i> Solicita</span>
+                    </a>
+                </div>
+            </li>
+            <li class="col-lg-3 col-md-6 text-center">
+                <div class="authentification-block msing-bg-primary">
+                    <img class="img-responsive mt-5" src="@/assets/fiscservinform.png">
+                    <h5 class="title text-white">Semnatură electronică</h5>
+                    <a class="btn btn-light text-primary mr-2 mb-2 btn-sm" @click="selectTool('electronicSign','fiscservinform.png')">
+                        <span class="font-weight-bold"> <i class="fas fa-check"></i> Solicita</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="-flex justify-content-center mb-3 col-12">
+            <div class="col">
+                <div class="container">
+                        <button class="btn btn-outline-danger btn-sm" @click="goTo('/')">
+                            <span class="font-weight-bold"> <i class="fas fa-times"></i>
+                                    Anulare
+                            </span>
+                        </button>
+                    </div>
+            </div>
+         </div>
+    </div>
+</div>

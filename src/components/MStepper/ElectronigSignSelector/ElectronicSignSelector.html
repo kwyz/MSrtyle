@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center flex-wrap">
+    <div class="col-lg-3 col-md-6  mb-3" v-for="sign in signs">
+        <div class="row">
+            <div class="authentification-block msing-bg-primary text-center">
+                <img class="img-responsive" :src="require(`@/assets/${imageUrl}`)">
+                <h6 class="title text-white">{{sign.owner}}</h6>
+                <h6 class="title text-white font-weight-light ">{{sign.organization}}</h6>
+                <a class="align-self-end btn  btn-light text-primary mr-2 mb-2 btn-sm" @click="selectSign(sign)">
+                    <span class="font-weight-bold"> <i class=" fas fa-check"></i> Utilizează</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="-flex justify-content-center mb-3 col-12">
+        <div class="col">
+            <div class="container">
+                <button class="btn btn-outline-danger btn-sm" @click="goTo('/')">
+                    <span class="font-weight-bold"> <i class="fas fa-times"></i>
+                        Anulare
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

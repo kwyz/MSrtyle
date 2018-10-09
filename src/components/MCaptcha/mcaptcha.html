@@ -1,0 +1,5 @@
+<form @submit.prevent="onSubmit">
+  <vue-recaptcha ref="mcaptcha" @verify="onVerify" @expired="onExpired" :size="captchaType" :sitekey="siteKey">
+  </vue-recaptcha>
+  <slot></slot>
+</form>

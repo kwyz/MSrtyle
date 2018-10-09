@@ -1,0 +1,94 @@
+<div class="container  col-11">
+    <div class="row mb-1" v-if="isSigned">
+        <div class="col-12">
+            <table class="table border table-sm table-hover table-striped">
+                <thead>
+                    <tr class="msing-bg-primary text-white ">
+                        <th scope="col" class="text-left" style="width:5%">#</th>
+                        <th scope="col" class="text-left" style="width: 75%">Documentul</th>
+                        <th scope="col" class="text-left" style="width: 15%">Statutul</th>
+                        <th scope="col" style="width: 5%"><input type="checkbox" checked="true" @click="markAllCheckBoxes()"
+                                :checked='isCheckedAllCheckBoxes()'></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="file in fileSigned">
+                        <th scope="row" class="text-left"> {{fileSigned.indexOf(file) +1 }}</th>
+                        <td class="text-left">{{file.name}}</td>
+                        <td v-if="file.signedStatus === true" class="text-left">
+                            <span class="text-success" data-toggle="tooltip" data-placement="top" title="Semnat"><i
+                                    class="fas fa-check-circle"></i><span class="d-none d-lg-inline">
+                                    Semnat</span>
+                            </span>
+                        </td>
+                        <td v-else class="text-left">
+                            <span class="text-danger" data-toggle="tooltip" data-placement="top" title="Ne-semnat"><i
+                                    class="fas fa-times-circle"></i><span class="d-none d-lg-inline">
+                                    Nesemnat</span></span>
+                        </td>
+                        <td class="text-center">
+                            <div class="d-inline-flex">
+                                <input type="checkbox" :checked="fileIsChecked(file.name,fileSigned.indexOf(file)) "
+                                    @click="memoriseFiles(file.name,fileSigned.indexOf(file))">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12">
+            <div class="border mb-2 bg-light small text-center">
+                <span class="text-danger font-weight-bold mt-2">
+                    <i class="fas fa-exclamation-circle text-danger h6 mt-1"></i> Important
+                </span>
+                <span>este de a salva documentul semnat pe calculatorul dvs deoarece el nu se stochează pe
+                    serverele noastre.</span>
+            </div>
+            <button class="btn btn-outline-primary mr-2 btn-block" :disabled="!memorisedFiles.length > 0" @click="downloadFiles"><i class="fas fa-download small"></i>
+                <span class="small font-weight-bold"> Descarca
+                    documentele</span></button>
+            <button class="btn btn-outline-primary mr-2 mb-2 btn-block" v-show="!sendDocsViaEmail" :disabled="!memorisedFiles.length > 0"
+                @click=showSendForm><i class=" fas
+                fa-envelope small"></i>
+                <span class="small font-weight-bold"> Transmite prin e-mail</span>
+            </button>
+        </div>
+        <div class="col-12">
+            <transition name="slide-fade">
+                <div class="col-12 text-left border mt-3 mb-3 " v-if="sendDocsViaEmail">
+                    <form>
+                        <div class="form-group mt-2">
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
+                                placeholder="Adresa utilizatorului" v-validate="'required|email'" autocomplete="off">
+
+                            <small id="emailHelp" class="form-text text-muted" v-if="!errors.first('email')">Adresa
+                                data nu va fi distribuita nimanui</small>
+                            <small id="emailHelp" class="form-text text-danger" v-if="errors.first('email')">{{errors.first('email')}}</small>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea rows="5" name="text" class="form-control" id="coment" placeholder="Comentariu"></textarea>
+                        </div>
+                        <div class="row container">
+                            <div class="bg-light border rounded-0 mb-2 mr-2" v-for="file in memorisedFiles">
+                                <span class="m-1"> <i class="fas fa-times-circle text-danger" @click="addOrRemoveFromArray(file,file.fileId)"
+                                        style="cursor:pointer"></i><small class="font-weight-bold">
+                                        {{file.fileName}}</small>
+                                </span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary mb-3"><i class="fas fa-envelope small"></i>
+                            Transmite</button>
+                    </form>
+                </div>
+            </transition>
+        </div>
+    </div>
+    <div class="row msign-bg-error" v-else>
+        <h6 class="font-weight-light text-danger">
+            <i class="fas fa-times-circle ml-2 mt-2"></i> Semnătura nu a fost aplicată. Serviciul semnătură HSM nu este
+            momentan disponibil. Vă rugăm să încercati mai tîrziu sau contactati-ne la 022 820 000.
+        </h6>
+    </div>
+
+</div>
