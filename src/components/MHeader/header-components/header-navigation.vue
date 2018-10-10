@@ -1,8 +1,8 @@
 <template id="header-navigation">
 <div class="contaiener">
-  <div class="d-flex justify-content-end mr-4">
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+  <div class="d-flex justify-content-end">
+    <div class="collapse navbar-collapse" id="navbarSideIconDropdown">
+      <ul class="navbar-nav no-underline mb-3">
         <slot></slot>
       </ul>
     </div>
@@ -11,9 +11,6 @@
 </template>
 <script>
 export default {
-  name: 'm-header-navigation',
-  mounted() {
-    console.log(this.$parent)
-  },
+  name: 'm-header-navigation'
 }
 </script>

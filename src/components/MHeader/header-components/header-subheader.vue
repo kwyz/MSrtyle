@@ -2,9 +2,11 @@
 <div class="container">
   <div class="mt-2 row">
     <div class="container mt-4">
-      <div class="col-md-12 mb-4 d-md-inline-flex justify-content-md-between mt-2">
-        <slot>
-        </slot>
+      <div class="mb-4 mt-2">
+        <div class="row">
+          <slot>
+          </slot>
+        </div>
       </div>
     </div>
   </div>

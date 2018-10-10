@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+#mcard{
+  max-height: 150px;
+  min-height: 150px;
+  position: relative;
+}
+#card-content{
+  position: absolute;
+  bottom: 0;
+  left: 0
+}
+
+.primary-font {
+  font: "Roboto" sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+}
+.no-underline:hover {
+  text-decoration: none;
+}
+.msing-bg-primary {
+  background-color: #6D87A8;
+}
+
+body {
+  font-family: "Roboto" sans-serif;
+}
+
+/*# sourceMappingURL=mstyle.css.map */

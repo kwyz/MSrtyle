@@ -1,6 +1,6 @@
 {
   "name": "vue-mstyle",
-  "version": "0.1.92",
+  "version": "0.2.18",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build-lib": "vue-cli-service build --target lib --name mstyle ./src/index.js"

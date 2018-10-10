@@ -1,6 +1,6 @@
 <template>
 <li class="nav-item d-md-none">
-  <small class="ml-4 mt-3 mb-2">
+  <small class="ml-4 mt-5 no-underline">
     <slot></slot>
   </small>
 </li>
